@@ -2,12 +2,18 @@
 <div class="container">
   <h1>My Todos</h1>
   
+  <ul>
   @for (todo of todos(); track todo.id) {
+    <li appHighlightCompleted [isCompleted]="todo.completed">
     <div class="card">
-      <input type="checkbox" [checked]="todo.completed" />
-      <h3 [class.completed]="todo.completed">{{ todo.title }}</h3>
+      <input type="checkbox" 
+             [checked]="todo.completed" 
+             (change)="toggleTodo(todo.id)" />
+      <h3>{{ todo.title | titlecase }}</h3>
       <p>Status: {{ todo.completed ? 'Completed' : 'Pending' }}</p>
       <p>User ID: {{ todo.userId }}</p>
     </div>
+    </li>
   }
+  </ul>
 </div>
