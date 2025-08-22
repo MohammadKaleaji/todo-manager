@@ -4,6 +4,7 @@
   
   @for (todo of todos(); track todo.id) {
     <div class="card">
+      <input type="checkbox" [checked]="todo.completed" />
       <h3 [class.completed]="todo.completed">{{ todo.title }}</h3>
       <p>Status: {{ todo.completed ? 'Completed' : 'Pending' }}</p>
       <p>User ID: {{ todo.userId }}</p>

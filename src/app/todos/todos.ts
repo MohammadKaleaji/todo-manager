@@ -11,8 +11,10 @@ import { Todos as TodosService } from '../services/todos';
 export class Todos implements OnInit {
   todosService = inject(TodosService);
   todos = computed(() => this.todosService.todoItems());
+  
   ngOnInit(): void {
-    const todos = this.todosService.todoItems();
-    console.log(todos);
+    this.todosService.getTodosFromServer().subscribe((todos) => {
+      this.todosService.todoItems.set(todos);
+    });
   }
 }
