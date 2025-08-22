@@ -1,20 +1,15 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { Title } from './title/title';
-import { Tracker } from './tracker/tracker';
+import { RouterOutlet, RouterLink } from '@angular/router';
+import { Title } from './components/title/title';
+import { Tracker } from './components/tracker/tracker';
+import { Home } from './home/home';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Title, Tracker],
+  imports: [RouterOutlet, RouterLink],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('Hello from app.ts component');
-  keyUpHandler(event: KeyboardEvent) {
-    console.log("Key pressed:", event.key);
-//     console.log("Key code:", event.code);
-//     console.log("Ctrl pressed:", event.ctrlKey);
-//     console.log("Shift pressed:", event.shiftKey);
-//     console.log("Alt pressed:", event.altKey);
- }}
+
+ }

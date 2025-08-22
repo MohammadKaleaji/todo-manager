@@ -1,0 +1,12 @@
+<app-header></app-header>
+<div class="container">
+  <h1>My Todos</h1>
+  
+  @for (todo of todos(); track todo.id) {
+    <div class="card">
+      <h3 [class.completed]="todo.completed">{{ todo.title }}</h3>
+      <p>Status: {{ todo.completed ? 'Completed' : 'Pending' }}</p>
+      <p>User ID: {{ todo.userId }}</p>
+    </div>
+  }
+</div>

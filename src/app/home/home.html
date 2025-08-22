@@ -1,0 +1,18 @@
+<app-header></app-header>
+
+<div class="container">
+    <h1>{{ title() }}</h1>
+    
+    <div class="card">
+        <app-title [titleInsideChildComponent]="title()"></app-title> 
+    </div>
+    
+    <div class="card">
+        <h3>Try typing something:</h3>
+        <input type="text" name="name" id="name" (keyup)="keyUpHandler($event)" placeholder="Type here to see key detection...">
+    </div>
+    
+    <div class="card">
+        <app-tracker></app-tracker>
+    </div>
+</div>

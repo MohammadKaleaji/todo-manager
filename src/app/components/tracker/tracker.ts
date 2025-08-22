@@ -9,9 +9,17 @@ import { Component, signal } from '@angular/core';
 export class Tracker {
   steps = signal(0);
   decrement() {
-    this.steps.update(prev => prev - 1);
+    if (this.steps() > 0) {
+      this.steps.update(prev => prev - 1);
+    }
   }
   increment() {
     this.steps.update(prev => prev + 1);
   }
+  reset() {
+    this.steps.set(0);
+  }
 }
+
+// [ set ] better used when the signal is gonna be updated just few times
+// [update ] better used when the signal is gonna be updated many times
