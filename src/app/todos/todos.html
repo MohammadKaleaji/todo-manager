@@ -1,9 +1,23 @@
 <app-header></app-header>
-<div class="container">
-  <h1>My Todos</h1>
-  
+<div class="search-container">
+  <input 
+      type="text" 
+      name="searchBy"
+      placeholder="Search todos..."
+      [(ngModel)]="searchBy" 
+      />
+      <button (click)="searchTodos()">Search</button>
+
+</div>
+
+    <!-- {{ searchBy() }} --> <!-- To TEST the signal is updating its value -->
+
+@if (todos().length <= 0) {
+<p>Loading...</p>
+} @else {
+  <div class="container">
   <ul>
-  @for (todo of todos(); track todo.id) {
+  @for (todo of todos() | filterTodos : searchBy(); track todo.id) {
     <li appHighlightCompleted [isCompleted]="todo.completed">
     <div class="card">
       <input type="checkbox" 
@@ -17,3 +31,4 @@
   }
   </ul>
 </div>
+}
